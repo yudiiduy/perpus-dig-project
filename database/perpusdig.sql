@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 10, 2024 at 03:44 PM
+-- Generation Time: Jul 10, 2024 at 09:21 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.1.25
 
@@ -44,42 +44,16 @@ CREATE TABLE `buku` (
 INSERT INTO `buku` (`IDbuku`, `judul`, `penulis`, `penerbit`, `tahunterbit`, `foto`, `buku`) VALUES
 (4, 'Jujutsu Kaisen', 'Gege Akutami', 'Jepang', 2024, '9786230022180_Jujutsukaisen_1.jpg', ''),
 (5, 'Detektif Conan', 'Aoyama Gosho', 'Jepang', 1998, 'coverconan.jpg', ''),
-(6, 'Demon Slayer', 'Kimetsu No Yaiba', 'Jepang', 2021, '9786230017193_cover_Demon_Slayer_01.jpg', '');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `kategoribuku`
---
-
-CREATE TABLE `kategoribuku` (
-  `IDkategori` int(11) NOT NULL,
-  `namakategori` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `kategoribuku_relasi`
---
-
-CREATE TABLE `kategoribuku_relasi` (
-  `IDkategoribuku` int(11) NOT NULL,
-  `IDbuku` int(11) NOT NULL,
-  `IDkategori` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `koleksipribadi`
---
-
-CREATE TABLE `koleksipribadi` (
-  `koleksiID` int(11) NOT NULL,
-  `IDuser` int(11) NOT NULL,
-  `IDbuku` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+(6, 'Demon Slayer', 'Kimetsu No Yaiba', 'Jepang', 2021, '9786230017193_cover_Demon_Slayer_01.jpg', ''),
+(7, 'Naruto', 'Masashi Kishimoto', 'Jepang', 1999, 'Yv1tkdZJ2l.jpg', ''),
+(8, 'Dragon Ball', 'Akira Toriyama', 'Jepang', 1984, 'YlEHsLxjju.jpg', ''),
+(9, 'Kobo Chan', 'Kobo Tabata', 'Jepang', 1995, '4ce5stQnrM.jpg', ''),
+(10, 'Doraemon', 'Fujiko F. Fujio', 'Jepang', 1996, 'rxlpxw5bYl.jpg', ''),
+(11, 'Slam Dunk', 'Takehiko Inoue', 'Jepang', 1990, 'dmksd.jpg', ''),
+(12, 'Cantik Itu Luka', 'Eka Kurniawan', 'Gramedia Pustaka Utama', 2015, 'Cantik-itu-Luka-Cover-Besar.jpg', ''),
+(13, 'Laut Bercerita', 'Leila S. Chudori', 'Kepustakaan Populer Gramedia', 2017, 'Laut-Bercerita4-1.jpg', ''),
+(14, 'Bumi Manusia', 'Pramoedya Ananta Toer', 'Lentera Dipantara', 1980, 'Bumi-Manusia-1.jpg', ''),
+(15, 'Sumur', 'Eka Kurniawan', 'Gramedia Pustaka Utama', 2012, '9786020653242_SUMUR--1-.jpg', '');
 
 -- --------------------------------------------------------
 
@@ -92,30 +66,10 @@ CREATE TABLE `peminjaman` (
   `IDuser` int(11) NOT NULL,
   `IDbuku` int(11) NOT NULL,
   `nama` varchar(255) NOT NULL,
+  `judul` varchar(255) NOT NULL,
   `tgl_peminjaman` date NOT NULL,
   `tgl_pengembalian` date NOT NULL,
   `status_peminjaman` enum('proses','dipinjam','dikembalikan') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `peminjaman`
---
-
-INSERT INTO `peminjaman` (`IDpeminjaman`, `IDuser`, `IDbuku`, `nama`, `tgl_peminjaman`, `tgl_pengembalian`, `status_peminjaman`) VALUES
-(3, 1, 1, 'HIMAJI', '2024-07-03', '2024-07-04', 'dipinjam');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `ulasanbuku`
---
-
-CREATE TABLE `ulasanbuku` (
-  `IDulasan` int(11) NOT NULL,
-  `IDuser` int(11) NOT NULL,
-  `IDbuku` int(11) NOT NULL,
-  `ulasan` text NOT NULL,
-  `rating` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -140,10 +94,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`IDuser`, `username`, `password`, `email`, `nim`, `namalengkap`, `alamat`, `level`) VALUES
-(1, 'admin', 'admin', 'admin@gmail.com', '17223019', 'yudiismail', '', 'admin'),
-(2, 'petugas', 'petugas', 'petugas@gmail.com', '1722348', 'aceng', '', 'petugas'),
-(4, 'adasa', 'adasa', 'adasa@gmail.com', '453653', 'junaedi', '', 'pengguna'),
-(12, 'cogil', 'cegil', 'yudi@gmail.com', '17223019', 'Yudi Ismail', '', 'pengguna');
+(12, 'cogil', 'cegil', 'yudi@gmail.com', '17223019', 'Yudi Ismail', '', 'pengguna'),
+(13, 'petugas', 'petugas', 'petugas@gmail.com', '00023762', 'Pak Perpus', 'Bandung', 'petugas');
 
 --
 -- Indexes for dumped tables
@@ -156,34 +108,10 @@ ALTER TABLE `buku`
   ADD PRIMARY KEY (`IDbuku`);
 
 --
--- Indexes for table `kategoribuku`
---
-ALTER TABLE `kategoribuku`
-  ADD PRIMARY KEY (`IDkategori`);
-
---
--- Indexes for table `kategoribuku_relasi`
---
-ALTER TABLE `kategoribuku_relasi`
-  ADD PRIMARY KEY (`IDkategoribuku`);
-
---
--- Indexes for table `koleksipribadi`
---
-ALTER TABLE `koleksipribadi`
-  ADD PRIMARY KEY (`koleksiID`);
-
---
 -- Indexes for table `peminjaman`
 --
 ALTER TABLE `peminjaman`
   ADD PRIMARY KEY (`IDpeminjaman`);
-
---
--- Indexes for table `ulasanbuku`
---
-ALTER TABLE `ulasanbuku`
-  ADD PRIMARY KEY (`IDulasan`);
 
 --
 -- Indexes for table `user`
@@ -199,43 +127,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `buku`
 --
 ALTER TABLE `buku`
-  MODIFY `IDbuku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT for table `kategoribuku`
---
-ALTER TABLE `kategoribuku`
-  MODIFY `IDkategori` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `kategoribuku_relasi`
---
-ALTER TABLE `kategoribuku_relasi`
-  MODIFY `IDkategoribuku` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `koleksipribadi`
---
-ALTER TABLE `koleksipribadi`
-  MODIFY `koleksiID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `IDbuku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `peminjaman`
 --
 ALTER TABLE `peminjaman`
-  MODIFY `IDpeminjaman` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `ulasanbuku`
---
-ALTER TABLE `ulasanbuku`
-  MODIFY `IDulasan` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `IDpeminjaman` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `IDuser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `IDuser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
