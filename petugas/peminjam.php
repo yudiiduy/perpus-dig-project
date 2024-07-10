@@ -12,6 +12,7 @@ include 'layout/header.php'
             <tr>
             <th scope="col">ID Peminjaman</th>
             <th scope="col">Nama Peminjam</th>
+            <th scope="col">Judul Buku</th>
             <th scope="col">Status Pinjam</th>
             <th scope="col">Aksi</th>
             </tr>
@@ -26,10 +27,10 @@ include 'layout/header.php'
             <tr>
             <th scope="row"><?php echo $d['IDpeminjaman'];?></th>
             <td><?php echo $d['nama'];?></td>
+            <td><?php echo $d['judul'];?></td>
             <td><?php echo $d['status_peminjaman'];?></td>
             <td>
                 <a href="data/detail_peminjaman.php?idpeminjaman=<?php echo $d['IDpeminjaman'];?>" class="btn btn-primary text-white">Detail</a>
-                <a href="" class="btn btn-warning text-white">Edit</a>
                 <a href="data/delete_peminjaman.php?idpeminjaman=<?php echo $d['IDpeminjaman'];?>" class="btn btn-danger text-white">Delete</a>
             </td>
             </tr>

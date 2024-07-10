@@ -37,6 +37,10 @@
                             <label for="exampleInputEmail1" class="form-label">Nama Peminjam</label>
                             <input type="text" class="form-control" name="nama" required id="exampleInputEmail1" aria-describedby="emailHelp">  
                         </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Judul Buku</label>
+                            <input type="text" class="form-control" name="judul" required id="exampleInputEmail1" aria-describedby="emailHelp">  
+                        </div>
                         <div class="row">
                             <div class="col">
                                 <div class="mb-3">

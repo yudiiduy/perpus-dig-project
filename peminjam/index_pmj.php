@@ -38,7 +38,7 @@
     <div class="col sm-3">
       <div class="card">
         <div class="card-body text-white bg-success">
-        <h2>Data Peminjaman</h2>
+        <h2>Buku Yang Dipinjam</h2>
         <h1><b><?php echo $p?></b></h1>
         </div>
         <a href="peminjam_pmj.php" class="btn btn-dark btn-sm">Lihat Selengkapnya</a>

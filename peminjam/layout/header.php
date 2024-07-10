@@ -13,7 +13,7 @@
         <div class="card-body">
           <a href="index_pmj.php" class="btn">Dashboard</a>
           <a href="buku.php" class="btn">Buku</a>
-          <a href="rakbuku.php" class="btn">Rak Buku</a>
+          <a href="rakbuku.php" class="btn">Buku Anda</a>
           <a href="../logout.php" class="btn">Logout</a>
         </div>
       </div>

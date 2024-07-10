@@ -23,7 +23,7 @@
             ?>
                     <div class="col">
                     <h2>Detail Peminjaman</h2>
-                    <a href="../peminjam.php" class="btn btn-danger">Kembali</a><hr>
+                    <a href="../rakbuku.php" class="btn btn-danger">Kembali</a><hr>
                         <table>
                             <tr>
                                 <td><h5>ID Peminjaman</h5></td>

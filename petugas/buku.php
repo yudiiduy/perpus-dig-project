@@ -28,7 +28,6 @@ include 'layout/header.php'
             <td><?php echo $d['judul'];?></td>
             <td>
                 <a href="data/detail_buku.php?idbuku=<?php echo $d['IDbuku'];?>" class="btn btn-primary text-white">Detail</a>
-                <a href="" class="btn btn-warning text-white">Edit</a>
                 <a href="data/delete_buku.php?idbuku=<?php echo $d['IDbuku'];?>" class="btn btn-danger text-white">Delete</a>
             </td>
             </tr>
