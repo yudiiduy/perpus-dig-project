@@ -1,8 +1,7 @@
 Perpustakaan Digital<br>
 ditujukan untuk memenuhi tugas akhir mata kuliah pemograman web
 
-    Web yang kami buat masih sederhana dan masih banyak untuk pengembangan tapi kami sudah optimalkan untuk
-
+Web yang kami buat masih sederhana dan masih banyak untuk pengembangan tapi kami sudah optimalkan untuk
 fitur wajib yang sudah tertera pada tugas, penjelasan sedikit tentang web kami untuk awalan kami gunakan
 form registrasi dan login untuk masuk ke halaman kami,jadi kami punya 2 halaman yaitu halaman peminjam
 yang dimana berisi dashboard rak buku, data anggota dan data buku yang dipinjam, secara keseluruhan
